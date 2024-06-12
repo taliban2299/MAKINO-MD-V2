@@ -1,0 +1,37 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm test
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+{"noiseKey":{"private":{"type":"Buffer","data":"8HI52T9DpC/WaV3pUkggdgIcDUbtKtvmi6gaWkQOoXk="},"public":{"type":"Buffer","data":"vub6bWfFuuQqQp5CzOy734yfuONUVdrCq7RYKHoImn0="}},"pairingEphemeralKeyPair":{"private":{"type":"Buffer","data":"iKB1tetR+pW9aoeVqAzXkiY/rx/wyqCQ92r8+FhJjlU="},"public":{"type":"Buffer","data":"v86M1r+RVBYVY3jEtI8t17vhK9xIBn9cHSkvslITwW0="}},"signedIdentityKey":{"private":{"type":"Buffer","data":"oI9WOVl0NOoLsfLHh5UoYlSJf/dH7pBJe3cbtjPFLEc="},"public":{"type":"Buffer","data":"V13BtZUjMTN8QEvC4hHm/E5P+MfUObuLQfh3t6TdOBk="}},"signedPreKey":{"keyPair":{"private":{"type":"Buffer","data":"GNH6eZI63rhc7KfwfTww4kMHvhwPyuVVDCKeJvDdzUs="},"public":{"type":"Buffer","data":"2NYwBu3l/jjpADdOXg2EEB9PChjiAVaWYYGyf7E7yUo="}},"signature":{"type":"Buffer","data":"mLFhM33qx4YPLT67n64hfBpDrgiprU7QV00x4NiutSvWPcfbZNyHM6wPESvAlJD++eATgpbrrhsAvd8lkDtQig=="},"keyId":1},"registrationId":187,"advSecretKey":"W291OXTSQaSluD6KVP5GznJ5a217/AZ/6d4JDCqMI2Q=","processedHistoryMessages":[],"nextPreKeyId":31,"firstUnuploadedPreKeyId":31,"accountSyncCounter":0,"accountSettings":{"unarchiveChats":false},"deviceId":"rz9BBMvLSwqgV5GP-Zq7vA","phoneId":"01a05fca-f07d-41d5-893e-463a53afcc10","identityId":{"type":"Buffer","data":"dhzA1wER63nZ3ttJkeFw1LvDGTU="},"registered":true,"backupToken":{"type":"Buffer","data":"9xv4TtWk8B0NWMQkmftGk+9LIns="},"registration":{},"pairingCode":"ZRZMDA8V","me":{"id":"254115758028:32@s.whatsapp.net"},"account":{"details":"CKSZxJMBEKuFp7MGGAUgACgA","accountSignatureKey":"3hi/T+Kz1U1Z6cD+eSoY3Jczv07zmG+aOgpBbSv3PyY=","accountSignature":"F4FF6OEGauhcQsPu9c+7JVl8/cNUJjB1UmlNE/5DeAKCECxna1IyPYJSZk+34BY8nDSHL3EPnjg9z7RWuGt1DA==","deviceSignature":"D5VOS/68iiipsLf9NAHDkLMP4VB3Gz+zq+xif1Rk5+N9LGVwNH9nViyvji+hmtGmb5a8yHRMZuoUWWIPhKXqhg=="},"signalIdentities":[{"identifier":{"name":"254115758028:32@s.whatsapp.net","deviceId":0},"identifierKey":{"type":"Buffer","data":"Bd4Yv0/is9VNWenA/nkqGNyXM79O85hvmjoKQW0r9z8m"}}],"platform":"android","lastAccountSyncTimestamp":1718207161}
