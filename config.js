@@ -17,13 +17,13 @@ global.antitags = false;
 global.autoTyping = false;                //make true to enable auto typing
 global.autoRecord = true;                //make true to enable auto recording
 global.groupevent = true;                //This is the new variable for controlling group event handling.
-global.statusseen = false;                 //make true to view statuses 
+global.statusseen = true;                 //make true to view statuses 
 
 
 //
-/*global.Owner = process.env.OWNER || "2347045174399";// Owner number
-global.OwnerNumber = process.env.OWNER_NUMBER || "2347045174399" ;// Also owner number
-global.ownertag = process.env.OWNER_TAG || "2347045174399";// Also owner number
+/*global.Owner = process.env.OWNER || "254115758028";// Owner number
+global.OwnerNumber = process.env.OWNER_NUMBER || "254115758028" ;// Also owner number
+global.ownertag = process.env.OWNER_TAG || "254115758028";// Also owner number
 global.sessID = process.env.sessID || ""; //Session ID here.
 global.OwnerName = process.env.OWNER_NAME || "Tᴀɪʀᴀ Mᴀᴋɪɴᴏ";// Owner Name
 global.BotName = "🐦Makino-md-v2";//Do not change 🥵
@@ -34,12 +34,12 @@ global.SupportGroupLink = "https://chat.whatsapp.com/KEg0G3UUs1G39ikdyfF5Pm"; //
 global.dbase = process.env.DBASE || "";//Mongodb here
 global.AuthorWhatsapp = "https://wa.me/2347080968564"; //Bot creator WhatsApp link,don't change or bot will not work.
 */
-global.Owner = [""];
-global.OwnerNumber = [""];
-global.ownertag = [""]; 
-global.OwnerName =  "Tᴀɪʀᴀ Mᴀᴋɪɴᴏ";
+global.Owner = ["Lewis Junior"];
+global.OwnerNumber = ["254115758028"];
+global.ownertag = ["254115758028"]; 
+global.OwnerName =  "Lewis Junior";
 global.BotName = "🐦Makino-md-v2";
-global.packname = "Tᴀɪʀᴀ Mᴀᴋɪɴᴏ";                             //Do not change.
+global.packname = "Lewis Junior";                             //Do not change.
 global.author = "🐦Makino md ᴍᴜʟᴛɪ-ᴅᴇᴠɪᴄᴇ";                               //Do not change.
 global.BotSourceCode = "https://github.com/anonphoenix007/MAKINO-MD-V2"; //Do not change.
 global.SupportGroupLink = "https://chat.whatsapp.com/KEg0G3UUs1G39ikdyfF5Pm "; 
